@@ -54,8 +54,18 @@ public class GenericLLParser implements Parser {
 	 * because the token stream does not contain the expected symbols
 	 */
 	private AST parse(Symbol symb) throws ParseException {
-		// fill in
-		return null;
+		if(symb instanceof Term) {
+			Term term = (Term) symb;
+			Token token = next();
+			if(! (term.getTokenType() == token.getType()) ) {
+				throw new ParseException("Expected "+term.getName()+" but saw "+token.getText()+" instead.");
+			}
+			return new AST(term, token);
+		} else if (symb instanceof NonTerm){
+			return parse(lookup((NonTerm) symb));
+		} else {
+			throw new ParseException("Symbol found that's neither term nor non-term");
+		}
 	}
 
 	/** Parses the start of the token stream according to a given
@@ -68,8 +78,16 @@ public class GenericLLParser implements Parser {
 	 * because the token stream does not contain the expected symbols
 	 */
 	private AST parse(Rule rule) throws ParseException {
-		// fill in
-		return null;
+		AST ast = new AST(rule.getLHS());
+		if (rule.getRHS().isEmpty()){
+			return null;
+		}
+		for (Symbol symbol: rule.getRHS()){
+			if (symbol != Symbol.EMPTY) {
+				ast.addChild(parse(symbol));
+			}
+		}
+		return ast;
 	}
 
 	/** Uses the lookup table to look up the rule to which
@@ -130,8 +148,37 @@ public class GenericLLParser implements Parser {
 	}
 
 	/** Constructs the {@link #ll1Table}. */
-	private Map<NonTerm, Map<Term, Rule>> calcLL1Table() {
-		// fill in
-		return null;
+	public Map<NonTerm, Map<Term, Rule>> calcLL1Table() {
+
+		/*
+		if(!calc.isLL1()){
+			throw new IllegalStateException();
+		}
+
+		Map<NonTerm, Map<Term, Rule>> calcLL1Table = new HashMap<>();
+		for(NonTerm nonTerm: g.getNonterminals()){
+			Map ruleMap = new HashMap<Term, Rule>();
+			for(Rule rule: g.getRules(nonTerm)){
+				for(Term term: calc.getFirstp().get(rule)){
+					ruleMap.put(term, rule);
+				}
+			}
+			calcLL1Table.put(nonTerm, ruleMap);
+		}
+		return calcLL1Table;
+		*/
+
+		Map<NonTerm, Map<Term, Rule>> result = new HashMap<>();
+		for (Rule rule: this.g.getRules()) {
+			NonTerm lhs = rule.getLHS();
+			Map<Term,Rule> ruleMap = result.get(lhs);
+			if (ruleMap == null){
+				result.put(lhs, ruleMap = new LinkedHashMap<Term, Rule>());
+			}
+			for (Term term: this.calc.getFirstp().get(rule)){
+				ruleMap.put(term, rule);
+			}
+		}
+		return result;
 	}
 }

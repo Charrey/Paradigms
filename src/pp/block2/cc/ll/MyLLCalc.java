@@ -111,7 +111,7 @@ public class MyLLCalc implements LLCalc{
         for (Rule p : grammar.getRules()) {
             firstplus.put(p, new HashSet<>(getFirst().get(p.getRHS().get(0))));
             if (getFirst().get(p.getRHS().get(0)).contains(Term.EMPTY)) {
-                firstplus.get(p).addAll(follow.get(p.getLHS()));
+                firstplus.get(p).addAll(getFollow().get(p.getLHS()));
             }
         }
         return firstplus;

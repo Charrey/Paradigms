@@ -1,9 +1,6 @@
 package pp.block2.cc.ll;
 
-import static pp.block2.cc.ll.Sentence.ADJECTIVE;
-import static pp.block2.cc.ll.Sentence.ENDMARK;
-import static pp.block2.cc.ll.Sentence.NOUN;
-import static pp.block2.cc.ll.Sentence.VERB;
+
 
 import java.util.List;
 
@@ -38,6 +35,7 @@ public class AbcParser implements Parser {
 		AST result = new AST(L);
 		Token next = peek();
 		switch (next.getType()) {
+			//bij a en c hetzelfde doen
 			case abc.SMALLA:
 			case abc.SMALLC:
 				result.addChild(parseR());
@@ -50,6 +48,7 @@ public class AbcParser implements Parser {
 				result.addChild(parseToken(abc.SMALLA));
 				break;
 			default:
+				System.out.println(next.getType());
 				throw unparsable(L);
 		}
 		return result;
@@ -107,7 +106,16 @@ public class AbcParser implements Parser {
 	private AST parseQ() throws ParseException {
 		AST result = new AST(Q);
 		// there is only one rule, no need to look at the next token
-		result.addChild(parseToken(ADJECTIVE));
+		Token next = peek();
+		switch (next.getType()) {
+			case abc.SMALLB:
+				result.addChild(parseToken(abc.SMALLB));
+				result.addChild(parseToken(abc.SMALLC));
+				break;
+			case abc.SMALLC:
+				result.addChild(parseToken(abc.SMALLC));
+				break;
+		}
 		return result;
 	}
 
@@ -142,7 +150,7 @@ public class AbcParser implements Parser {
 
 	private static final NonTerm L = new NonTerm("L");
 	private static final NonTerm R = new NonTerm("R");
-	private static final NonTerm RP = new NonTerm("Rp");
+	private static final NonTerm RP = new NonTerm("R'");
 	private static final NonTerm Q = new NonTerm("Q");
 
 	public static void main(String[] args) {
@@ -151,10 +159,10 @@ public class AbcParser implements Parser {
 		} else {
 			for (String text : args) {
 				CharStream stream = new ANTLRInputStream(text);
-				Lexer lexer = new Sentence(stream);
+				Lexer lexer = new abc(stream);
 				try {
 					System.out.printf("Parse tree: %n%s%n",
-							new SentenceParser().parse(lexer));
+							new AbcParser().parse(lexer));
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}

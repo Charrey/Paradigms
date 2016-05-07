@@ -14,9 +14,11 @@ import org.junit.Test;
 import pp.block2.cc.AST;
 import pp.block2.cc.ParseException;
 import pp.block2.cc.Parser;
-import pp.block2.cc.ll.*;
+import pp.block2.cc.antlr.SentenceConverter;
+import pp.block2.cc.ll.Sentence;
+import pp.block2.cc.ll.SentenceParser;
 
-public class GenericLLParserTest {
+public class SentenceConverterTest {
 	private Parser parser1;
 	private Parser parser2;
 
@@ -26,18 +28,13 @@ public class GenericLLParserTest {
 	public void testSentence() {
 		this.lexerType = Sentence.class;
 		this.parser1 = new SentenceParser();
-		this.parser2 = new GenericLLParser(Grammars.makeSentence());
+		// The following will compile as soon as you do the exercise 
+		this.parser2 = new SentenceConverter();
 		compare("students love students.");
 		compare("all undergraduate students love all compilers.");
-		fails("all undergraduate students love all compilers");
-		fails("all undergraduate students love love.");
+		fails("students all undergraduate love all compilers");
+		fails("undergraduate students love love.");
 		fails("all undergraduate students all compilers.");
-		this.parser1 = new AbcParser();
-		this.parser2 = new GenericLLParser(Grammars.makeAbc());
-		this.lexerType = abc.class;
-		compare("abaa");
-		compare("bcba");
-		compare("cabaabacababca");
 	}
 
 	private void fails(String text) {
