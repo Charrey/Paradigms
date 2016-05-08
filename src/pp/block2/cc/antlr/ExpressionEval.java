@@ -18,7 +18,7 @@ import java.util.Stack;
  */
 public class ExpressionEval extends ArithmeticBaseListener {
 
-    public static final String toEval= "2^2";
+    public static final String toEval= "5/0";
     private boolean parseexception;
     private AST sentenceAST;
     private Stack<AST> myStack = new Stack<>();
@@ -36,6 +36,14 @@ public class ExpressionEval extends ArithmeticBaseListener {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public BigInteger evaluate(String text) throws ParseException {
+        CharStream stream = new ANTLRInputStream(text);
+        Lexer lexer = new ArithmeticLexer(stream);
+        ExpressionEval eeval = new ExpressionEval();
+        AST myAST = eeval.toAST(lexer);
+        return Eval(myAST);
     }
 
 
@@ -80,7 +88,7 @@ public class ExpressionEval extends ArithmeticBaseListener {
                     if (input.getChildren().get(1).getToken().getText().equals("*")) {
                         return Eval(input.getChildren().get(2)).multiply(Eval(input.getChildren().get(0)));
                     } else {
-                        return Eval(input.getChildren().get(2)).divide(Eval(input.getChildren().get(0)));
+                        return Eval(input.getChildren().get(0)).divide(Eval(input.getChildren().get(2)));
                     }
                 }
             default:
