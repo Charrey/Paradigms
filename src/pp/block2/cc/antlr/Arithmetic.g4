@@ -10,9 +10,9 @@ grammar Arithmetic;
 expression: expression '+' term | expression '-' term | term;
 term: term '*' power | term '/' power | power;
 power: factor| factor '^' power;
-factor: NUMBER | '-' factor | '('expression')';
+factor: NUMBER | '-' factor | '(' expression ')';
 
-NUMBER: [1..9]+[0..9]* | '0';
+NUMBER: [1-9]+ [0-9]* | '0';
 
 //VARIABLE : [a-zA-Z];
 
