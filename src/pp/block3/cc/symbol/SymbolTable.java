@@ -4,7 +4,7 @@ package pp.block3.cc.symbol;
  * A newly constructed {@link SymbolTable} should consist of a single
  * (outer) scope. 
  */
-public interface SymbolTable {
+public interface SymbolTable<R> {
 	/** Adds a next deeper scope level. */
 	public abstract void openScope();
 
@@ -17,7 +17,7 @@ public interface SymbolTable {
 	 * @return <code>true</code> if the identifier was added,
 	 * <code>false</code> if it was already declared in this scope.
 	 */
-	public abstract boolean add(String id);
+	public abstract boolean add(String id, R rec);
 
 	/** Tests if a given identifier is in the scope of any declaration.
 	 * @return <code>true</code> if there is any enclosing scope in which

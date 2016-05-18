@@ -25,6 +25,7 @@ public class MyTypeEvalTest {
 		assertEquals(Type.STR, typeEval.getType("\"1==1\""));
 	}
 
+	//Next time, we can just use assertFail and we don't need to throw the exception in the variable.
 	@Test
 	public void testErrorAB() {
 		assertEquals(Type.ERR, typeEval.getType("3^True"));

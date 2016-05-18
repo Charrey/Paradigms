@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import pp.block3.cc.symbol.MySymbolTable;
 import pp.block3.cc.symbol.SymbolTable;
 
 public class SymbolTableTest {
@@ -14,7 +15,7 @@ public class SymbolTableTest {
 
 	@Before
 	public void initTable() {
-		table = null;
+		table = new MySymbolTable<Integer>();
 	}
 
 	@Test
@@ -44,15 +45,15 @@ public class SymbolTableTest {
 	@Test
 	public void testLookup() {
 		assertFalse(this.table.contains("aap"));
-		assertTrue(this.table.add("aap"));
+		assertTrue(this.table.add("aap",1));
 		assertTrue(this.table.contains("aap"));
-		assertFalse(this.table.add("aap"));
+		assertFalse(this.table.add("aap",2));
 		assertFalse(this.table.contains("noot"));
 		this.table.openScope();
 		assertTrue(this.table.contains("aap"));
 		assertFalse(this.table.contains("noot"));
-		assertTrue(this.table.add("aap"));
-		assertTrue(this.table.add("noot"));
+		assertTrue(this.table.add("aap",3));
+		assertTrue(this.table.add("noot",2));
 		this.table.closeScope();
 		assertTrue(this.table.contains("aap"));
 		assertFalse(this.table.contains("noot"));
@@ -61,18 +62,18 @@ public class SymbolTableTest {
 	@Test
 	public void testNesting() {
 		this.table.openScope();
-		assertTrue(this.table.add("aap"));
+		assertTrue(this.table.add("aap",2));
 		this.table.openScope();
-		assertTrue(this.table.add("aap"));
+		assertTrue(this.table.add("aap",2));
 		this.table.openScope();
 		assertTrue(this.table.contains("aap"));
-		assertTrue(this.table.add("noot"));
+		assertTrue(this.table.add("noot",5));
 		assertTrue(this.table.contains("noot"));
 		this.table.closeScope();
 		assertFalse(this.table.contains("noot"));
 		this.table.openScope();
 		assertFalse(this.table.contains("noot"));
-		assertTrue(this.table.add("noot"));
+		assertTrue(this.table.add("noot",3));
 		assertTrue(this.table.contains("noot"));
 		this.table.closeScope();
 		assertFalse(this.table.contains("noot"));

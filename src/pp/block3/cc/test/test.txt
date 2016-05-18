@@ -1,0 +1,14 @@
+(
+D: TEST
+D: AUTO
+U: AAFDF
+D: AUTO
+    (
+    D: AUTO
+    D: APPEL
+        (
+        U: APPEL
+        )
+    )
+U:APPEL
+)
