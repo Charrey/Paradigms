@@ -14,7 +14,7 @@ import java.io.*;
 import static java.lang.Thread.sleep;
 
 /**
- * Created by Hans on 17-5-2016.
+ * Created by hans on 17-5-2016.
  */
 public class HTMLGenerator extends tabularGramBaseListener {
 
