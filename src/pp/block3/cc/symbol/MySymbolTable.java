@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * Created by Hans on 16-5-2016.
+ * Created by hans on 16-5-2016.
  */
 public class MySymbolTable<R> implements SymbolTable {
 

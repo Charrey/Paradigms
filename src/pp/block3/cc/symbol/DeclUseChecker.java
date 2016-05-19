@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Hans on 16-5-2016.
+ * Created by hans on 16-5-2016.
  */
 public class DeclUseChecker extends DeclUseBaseListener{
 
