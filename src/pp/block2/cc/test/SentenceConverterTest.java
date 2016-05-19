@@ -34,6 +34,7 @@ public class SentenceConverterTest {
 		compare("all undergraduate students love all compilers.");
 		fails("students all undergraduate love all compilers");
 		fails("undergraduate students love love.");
+		double b = 1.0d;
 		fails("all undergraduate students all compilers.");
 	}
 
