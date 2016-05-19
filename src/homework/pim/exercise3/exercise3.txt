@@ -1,0 +1,32 @@
+1.
+
+
+E(--ID)
+E -> F
+F(--ID)
+F -> --F
+F(ID)
+F -> T
+T(ID)
+T -> ID
+()
+
+E(--ID)
+E -> F
+F(--ID)
+F -> -F
+F(-ID)
+F -> -F
+F(ID)
+F -> T
+T(ID)
+T -> ID
+()
+
+2.
+It does remove the ambiguity; When a sentence goes through the tokenizer, as many characters as allowed are gathered inside tokens. In this case,
+ '--'-tokens will be generated unless there is only one minus- in which case one '-' token will be generated. Since the rules have now distinct starting
+ tokens, the ambiguity found in part one of the exercise is no more.
+ The only remaining parse tree in part one is the former.
+
+ 3.

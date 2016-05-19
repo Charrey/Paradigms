@@ -1,6 +1,6 @@
-package homework.pim.test;
+package homework.pim.exercise2.test;
 
-import homework.pim.JavaDecimal;
+import homework.pim.exercise2.JavaDecimal;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.Token;
 import org.junit.Test;

@@ -10,7 +10,9 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import pp.block4.cc.ErrorListener;
 import pp.block4.cc.cfg.FragmentParser.BlockStatContext;
 import pp.block4.cc.cfg.FragmentParser.BreakStatContext;
@@ -19,6 +21,9 @@ import pp.block4.cc.cfg.FragmentParser.BreakStatContext;
 public class BottomUpCFGBuilder extends FragmentBaseListener {
 	/** The CFG being built. */
 	private Graph graph;
+
+	private Node entry;
+	private Node exit;
 
 	/** Builds the CFG for a program contained in a given file. */
 	public Graph build(File file) {
@@ -51,8 +56,22 @@ public class BottomUpCFGBuilder extends FragmentBaseListener {
 	/** Builds the CFG for a program given as an ANTLR parse tree. */
 	public Graph build(ParseTree tree) {
 		this.graph = new Graph();
-		// TODO Fill in
-		throw new UnsupportedOperationException("Fill in");
+
+		new ParseTreeWalker().walk(this, tree);
+
+
+		return null;
+		//throw new UnsupportedOperationException("Fill in");
+	}
+
+	@Override
+	public void exitIfStat(@NotNull FragmentParser.IfStatContext ctx) {
+		System.out.println(ctx.getChildCount());
+		Node tempentry = entry;
+		Node tempexit = exit;
+		//Graph g1 = build(ctx.getChild(0));
+		//Graph g2 = build(ctx.getChild());
+
 	}
 
 	@Override

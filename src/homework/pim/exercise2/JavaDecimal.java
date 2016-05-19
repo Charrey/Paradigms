@@ -1,5 +1,5 @@
 // Generated from C:/Users/poesd_000/IdeaProjects/Paradigms/src/homework\JavaDecimal.g4 by ANTLR 4.5.1
-package homework.pim;
+package homework.pim.exercise2;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
