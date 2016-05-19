@@ -43,3 +43,6 @@ public class JavaDecTest {
         return tokens.size()==1 && tokens.get(0).getText().equals(input) && tokens.get(0).getType()==JavaDecimal.DECIMALFLOAT; //1
     }
 }
+
+
+
