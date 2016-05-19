@@ -84,6 +84,7 @@ public class AbcParser implements Parser {
 			case abc.SMALLB:
 				result.addChild(parseToken(abc.SMALLB));
 				result.addChild(parseToken(abc.SMALLC));
+				result.addChild(parseRp());
 				break;
 			default:
 				//do nothing

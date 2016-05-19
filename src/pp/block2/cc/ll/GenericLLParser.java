@@ -57,7 +57,7 @@ public class GenericLLParser implements Parser {
 		if(symb instanceof Term) {
 			Term term = (Term) symb;
 			Token token = next();
-			if(! (term.getTokenType() == token.getType()) ) {
+			if(term.getTokenType() != token.getType()) {
 				throw new ParseException("Expected "+term.getName()+" but saw "+token.getText()+" instead.");
 			}
 			return new AST(term, token);
@@ -150,10 +150,10 @@ public class GenericLLParser implements Parser {
 	/** Constructs the {@link #ll1Table}. */
 	public Map<NonTerm, Map<Term, Rule>> calcLL1Table() {
 
-		/*
 		if(!calc.isLL1()){
 			throw new IllegalStateException();
 		}
+		/*
 
 		Map<NonTerm, Map<Term, Rule>> calcLL1Table = new HashMap<>();
 		for(NonTerm nonTerm: g.getNonterminals()){
