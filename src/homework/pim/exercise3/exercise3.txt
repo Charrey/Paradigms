@@ -43,9 +43,9 @@ If you switch the rules "f -> MINUS f" and "f -> MINUS MINUS f" so the latter is
 1  E  ->  F Ea
 2  Ea -> '+' F Ea
 3      | e
-4  F  -> '-' '-' F
+4  F  -> '--' F
 5      | T
-6  T  -> ID Ta '+' '+' | ID
+6  T  -> ID Ta | ID
 7  Ta -> '+' '+' Ta
 8      | e
 
@@ -75,6 +75,14 @@ Lookahead -> '+'
 We can take rule 7...
 We can take rule 8...
 
-I would merge two adjecent plusses into a single token. Therefore, lookahead would be able to make a distinction between rule 7 (++) and rule 8 (+).
+I would merge two adjecent plusses into a single token, and remove the plus-signs in rule 6. Therefore, lookahead would be able to make a distinction between rule 7 (++) and rule 8 (+).
 This would only be possible of the plus in rule 2 is always surrounded by non-plus terminals, which it happens to be.
+Next off, we also have to shift ID from T to F, and remove a useless rule from T, resulting in the following equivalent LL(1) grammar:
 
+1  E  ->  F Ea
+2  Ea -> '+' F Ea
+3      | e
+4  F  -> '--' F
+5      | ID T
+7  T  -> '++' T
+8      | e
