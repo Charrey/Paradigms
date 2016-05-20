@@ -2,8 +2,8 @@ grammar Exercise3G0;
 
 e : e PLUS f
   | f;
-f : MINUS MINUS f
-  | MINUS f
+f : MINUS f
+  | MINUS MINUS f
   | t;
 t : t PLUS PLUS
   | ID;

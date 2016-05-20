@@ -1,0 +1,37 @@
+Attributes:
+
+Num: int type, int value
+Seq: int type, int value, int length
+Prf: int type
+Dig: int value
+DIGIT: int value
+
+Attribute rules:
+
+Number -> prf seq       Number.type  <- prf.type
+                        Number.value <- seq.value
+        | seq           Number.type  <- 10
+                        Number.value <- seq.value
+Seq    -> dig           Seq.value    <- dig.value
+                        Seq.length   <- 1
+        | dig seq       Seq.value    <- (dig * (seq.length ^ Seq.type)) + seq.value
+                        Seq.length   <- seq.length + 1
+Prf    -> 'x'           Prf.type     <- 16
+        | 'b'           Prf.type     <- 2
+Dig    -> DIGIT         Dig.value    <- DIGIT.value
+DIGIT  -> '0'           DIGIT.value = 0
+        | '1'           DIGIT.value = 1
+        | '2'           DIGIT.value = 2
+        | '3'           DIGIT.value = 3
+        | '4'           DIGIT.value = 4
+        | '5'           DIGIT.value = 5
+        | '6'           DIGIT.value = 6
+        | '7'           DIGIT.value = 7
+        | '8'           DIGIT.value = 8
+        | '9'           DIGIT.value = 9
+        | 'a'           DIGIT.value = 10
+        | 'b'           DIGIT.value = 11
+        | 'c'           DIGIT.value = 12
+        | 'd'           DIGIT.value = 13
+        | 'e'           DIGIT.value = 14
+        | 'f'           DIGIT.value = 15

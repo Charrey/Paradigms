@@ -84,5 +84,5 @@ Next off, we also have to shift ID from T to F, and remove a useless rule from T
 3      | e
 4  F  -> '--' F
 5      | ID T
-7  T  -> '++' T
-8      | e
+6  T  -> '++' T
+7      | e
