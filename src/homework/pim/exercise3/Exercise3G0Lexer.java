@@ -1,4 +1,3 @@
-// Generated from C:/Users/poesd_000/IdeaProjects/Paradigms/src/homework/pim/exercise3\Exercise3G0.g4 by ANTLR 4.5.1
 package homework.pim.exercise3;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

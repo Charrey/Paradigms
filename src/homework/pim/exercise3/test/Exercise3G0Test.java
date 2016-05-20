@@ -23,8 +23,6 @@ public class Exercise3G0Test {
     }
 
 
-
-
     public boolean accepts(String input) {
         accepts = true;
         Exercise3G0Lexer lexer = new Exercise3G0Lexer(new ANTLRInputStream(input));

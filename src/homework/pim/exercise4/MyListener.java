@@ -17,28 +17,18 @@ import pp.block3.cc.antlr.Type;
  */
 public class MyListener extends NumberBaseListener {
 
-    private ParseTreeProperty<Integer> type;
     private ParseTreeProperty<Integer> val;
-
-    public void init() {
-        this.type = new ParseTreeProperty<>();
-        this.val = new ParseTreeProperty<>();
-    }
 
     private void setval(ParseTree node, int val) {
         this.val.put(node, val);
-    }
-    private void settype(ParseTree node, int type) {
-        this.val.put(node, type);
     }
 
     public int getvalue(String string) {
         CharStream stream = new ANTLRInputStream(string);
         Lexer lexer = new NumberLexer(stream);
         NumberParser parser = new NumberParser(new CommonTokenStream(lexer));
-        ParseTree tree;
-        tree = parser.num();
-        init();
+        ParseTree tree = parser.num();
+        val = new ParseTreeProperty<>();
         new ParseTreeWalker().walk(this, tree);
         return val.get(tree);
     }

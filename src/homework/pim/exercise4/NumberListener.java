@@ -1,4 +1,3 @@
-// Generated from C:/Users/poesd_000/IdeaProjects/Paradigms/src/homework/pim/exercise4\Number.g4 by ANTLR 4.5.1
 package homework.pim.exercise4;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 

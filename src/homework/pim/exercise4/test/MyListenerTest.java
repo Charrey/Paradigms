@@ -1,5 +1,6 @@
-package homework.pim.exercise4;
+package homework.pim.exercise4.test;
 
+import homework.pim.exercise4.MyListener;
 import org.junit.Test;
 
 /**
