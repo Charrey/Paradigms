@@ -4,29 +4,29 @@ grammar Number;
 
 /** Number: sequence of digits optionally preceded by a base prefix */
 num returns [int val]
-    : a1=prf a2=seq[$a1.type] {
+    : a1=prf a2=seq[$a1.base] {
         $val = $a2.val;
     }
     | a3=seq[10] {
         $val = $a3.val;
     };
 /** Sequence of digits */
-seq [int type] returns [int val, int length]
+seq [int base] returns [int val, int length]
     : a1=dig {
         $length = 1;
         $val = $a1.val;
     }
-    | a2=dig a3=seq[type] {
+    | a2=dig a3=seq[base] {
         $length = $a3.length + 1;
-        $val = ($a2.val * (int) Math.pow(type, $a3.length)) + $a3.val;
+        $val = ($a2.val * (int) Math.pow(base, $a3.length)) + $a3.val;
     };
 /** Prefix: x stands for hexadecimal, b for binary */
-prf returns [int type]
+prf returns [int base]
     : 'x' {
-        $type = 16;
+        $base = 16;
     }
     | 'b' {
-        $type = 2;
+        $base = 2;
     };
 /** Single digit (hexadecimal range) */
 dig returns [int val] :

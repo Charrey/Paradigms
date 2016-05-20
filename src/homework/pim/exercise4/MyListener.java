@@ -7,10 +7,6 @@ import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import pp.block2.cc.ParseException;
-import pp.block3.cc.antlr.MyCalcAttrLexer;
-import pp.block3.cc.antlr.MyCalcAttrParser;
-import pp.block3.cc.antlr.Type;
 
 /**
  * Created by poesd_000 on 20/05/2016.

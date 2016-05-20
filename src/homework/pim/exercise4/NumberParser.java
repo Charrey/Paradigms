@@ -121,7 +121,7 @@ public class NumberParser extends Parser {
 				setState(8);
 				((NumContext)_localctx).a1 = prf();
 				setState(9);
-				((NumContext)_localctx).a2 = seq(((NumContext)_localctx).a1.type);
+				((NumContext)_localctx).a2 = seq(((NumContext)_localctx).a1.base);
 
 				        ((NumContext)_localctx).val =  ((NumContext)_localctx).a2.val;
 				    
@@ -153,7 +153,7 @@ public class NumberParser extends Parser {
 	}
 
 	public static class SeqContext extends ParserRuleContext {
-		public int type;
+		public int base;
 		public int val;
 		public int length;
 		public DigContext a1;
@@ -166,9 +166,9 @@ public class NumberParser extends Parser {
 			return getRuleContext(SeqContext.class,0);
 		}
 		public SeqContext(ParserRuleContext parent, int invokingState) { super(parent, invokingState); }
-		public SeqContext(ParserRuleContext parent, int invokingState, int type) {
+		public SeqContext(ParserRuleContext parent, int invokingState, int base) {
 			super(parent, invokingState);
-			this.type = type;
+			this.base = base;
 		}
 		@Override public int getRuleIndex() { return RULE_seq; }
 		@Override
@@ -186,8 +186,8 @@ public class NumberParser extends Parser {
 		}
 	}
 
-	public final SeqContext seq(int type) throws RecognitionException {
-		SeqContext _localctx = new SeqContext(_ctx, getState(), type);
+	public final SeqContext seq(int base) throws RecognitionException {
+		SeqContext _localctx = new SeqContext(_ctx, getState(), base);
 		enterRule(_localctx, 2, RULE_seq);
 		try {
 			setState(24);
@@ -209,10 +209,10 @@ public class NumberParser extends Parser {
 				setState(20);
 				((SeqContext)_localctx).a2 = dig();
 				setState(21);
-				((SeqContext)_localctx).a3 = seq(type);
+				((SeqContext)_localctx).a3 = seq(base);
 
 				        ((SeqContext)_localctx).length =  ((SeqContext)_localctx).a3.length + 1;
-				        ((SeqContext)_localctx).val =  (((SeqContext)_localctx).a2.val * (int) Math.pow(type, ((SeqContext)_localctx).a3.length)) + ((SeqContext)_localctx).a3.val;
+				        ((SeqContext)_localctx).val =  (((SeqContext)_localctx).a2.val * (int) Math.pow(base, ((SeqContext)_localctx).a3.length)) + ((SeqContext)_localctx).a3.val;
 				    
 				}
 				break;
@@ -230,7 +230,7 @@ public class NumberParser extends Parser {
 	}
 
 	public static class PrfContext extends ParserRuleContext {
-		public int type;
+		public int base;
 		public PrfContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -262,7 +262,7 @@ public class NumberParser extends Parser {
 				setState(26);
 				match(T__0);
 
-				        ((PrfContext)_localctx).type =  16;
+				        ((PrfContext)_localctx).base =  16;
 				    
 				}
 				break;
@@ -272,7 +272,7 @@ public class NumberParser extends Parser {
 				setState(28);
 				match(T__1);
 
-				        ((PrfContext)_localctx).type =  2;
+				        ((PrfContext)_localctx).base =  2;
 				    
 				}
 				break;

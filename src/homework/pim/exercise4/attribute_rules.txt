@@ -1,23 +1,23 @@
 Attributes:
 
-Num: int type, int value
-Seq: int type, int value, int length
-Prf: int type
+Num: int base, int value
+Seq: int base, int value, int length
+Prf: int base
 Dig: int value
 DIGIT: int value
 
 Attribute rules:
 
-Number -> prf seq       Number.type  <- prf.type
+Number -> prf seq       Number.base  <- prf.base
                         Number.value <- seq.value
-        | seq           Number.type  <- 10
+        | seq           Number.base  <- 10
                         Number.value <- seq.value
 Seq    -> dig           Seq.value    <- dig.value
                         Seq.length   <- 1
-        | dig seq       Seq.value    <- (dig * (seq.length ^ Seq.type)) + seq.value
+        | dig seq       Seq.value    <- (dig * (seq.length ^ Seq.base)) + seq.value
                         Seq.length   <- seq.length + 1
-Prf    -> 'x'           Prf.type     <- 16
-        | 'b'           Prf.type     <- 2
+Prf    -> 'x'           Prf.base     <- 16
+        | 'b'           Prf.base     <- 2
 Dig    -> DIGIT         Dig.value    <- DIGIT.value
 DIGIT  -> '0'           DIGIT.value = 0
         | '1'           DIGIT.value = 1
