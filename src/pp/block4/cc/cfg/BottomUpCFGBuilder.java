@@ -12,6 +12,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import pp.block4.cc.ErrorListener;
 import pp.block4.cc.cfg.FragmentParser.BlockStatContext;
@@ -24,6 +25,8 @@ public class BottomUpCFGBuilder extends FragmentBaseListener {
 
 	private Node entry;
 	private Node exit;
+
+	//ParseTreeProperty
 
 	/** Builds the CFG for a program contained in a given file. */
 	public Graph build(File file) {
@@ -66,11 +69,6 @@ public class BottomUpCFGBuilder extends FragmentBaseListener {
 
 	@Override
 	public void exitIfStat(@NotNull FragmentParser.IfStatContext ctx) {
-		System.out.println(ctx.getChildCount());
-		Node tempentry = entry;
-		Node tempexit = exit;
-		//Graph g1 = build(ctx.getChild(0));
-		//Graph g2 = build(ctx.getChild());
 
 	}
 

@@ -16,14 +16,22 @@ import pp.iloc.parse.FormatException;
 
 @SuppressWarnings("javadoc")
 public class AssemblerTest {
+
+	/*
 	@Test
 	public void testFig13() {
 		Program p = parse("fig1-3");
 		assertEquals(ints(0, 5, 6, 7, 8, 9), p.getRegLines().get("r_a"));
 		assertEquals(ints(1, 5), p.getRegLines().get("r_2"));
 		assertEquals(ints(0, 9), p.getSymbLines().get("a"));
+	} */
+
+	@Test
+	public void testFile() {
+		Program p = parse("max");
 	}
 
+	/*
 	@Test
 	public void testFig13Init() {
 		Program p = parse("fig1-3-init");
@@ -40,6 +48,7 @@ public class AssemblerTest {
 		assertEquals(ints(1, 2, 5, 6, 9, 10, 12, 14), p.getRegLines().get("r_2"));
 		assertEquals(ints(0, 15), p.getSymbLines().get("a"));
 	}
+	*/
 
 	private HashSet<Integer> ints(Integer... vals) {
 		return new HashSet<>(Arrays.asList(vals));
@@ -66,6 +75,6 @@ public class AssemblerTest {
 		}
 	}
 
-	private final static String BASE_DIR = "pp/iloc/sample/";
+	private final static String BASE_DIR = "src/pp/iloc/sample/";
 	private final static boolean SHOW = true;
 }

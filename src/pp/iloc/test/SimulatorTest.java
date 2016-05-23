@@ -18,6 +18,21 @@ import pp.iloc.parse.FormatException;
 
 @SuppressWarnings("javadoc")
 public class SimulatorTest {
+
+
+	@Test
+	public void testSimulator(){
+		Program p = parse("max");
+		Machine m = new Machine();
+		Simulator s = new Simulator(p,m);
+		s.getVM().init("a",1,3,2,5,4);
+		s.getVM().setNum("alength",5);
+		s.run();
+		assertEquals(5,m.getReg("r_max"));
+	}
+
+
+	/*
 	@Test(timeout = 1000)
 	public void testFig13() {
 		Program p = parse("fig1-3");
@@ -32,6 +47,7 @@ public class SimulatorTest {
 		}
 		assertEquals(240, c.load(a));
 	}
+
 
 	@Test(timeout = 1000)
 	public void testFig13Stack() {
@@ -93,6 +109,7 @@ public class SimulatorTest {
 		}
 		assertEquals("Doubled: abcabc", out.toString().trim());
 	}
+	*/
 
 	Program parse(String filename) {
 		File file = new File(filename + ".iloc");
@@ -107,6 +124,6 @@ public class SimulatorTest {
 		}
 	}
 
-	private final static String BASE_DIR = "pp/iloc/sample/";
+	private final static String BASE_DIR = "src/pp/iloc/sample/";
 	private final static boolean SHOW = true;
 }
