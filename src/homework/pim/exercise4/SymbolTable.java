@@ -1,4 +1,4 @@
-package homework.pim.exercise5;
+package homework.pim.exercise4;
 
 /** Store and tests for nested scopes of variable declarations.
  * A newly constructed {@link SymbolTable} should consist of a single
@@ -6,22 +6,22 @@ package homework.pim.exercise5;
  */
 public interface SymbolTable<R> {
 	/** Adds a next deeper scope level. */
-	void openScope();
+	public abstract void openScope();
 
 	/** Removes the deepest scope level.
 	 * @throws RuntimeException if the table only contains the outer scope.
 	 */
-	void closeScope();
+	public abstract void closeScope();
 
 	/** Tries to declare a given identifier in the deepest scope level.
-	 * @return <hans>true</hans> if the identifier was added,
-	 * <hans>false</hans> if it was already declared in this scope.
+	 * @return <code>true</code> if the identifier was added,
+	 * <code>false</code> if it was already declared in this scope.
 	 */
-	boolean add(String id, R rec);
+	public abstract boolean add(String id, R rec);
 
 	/** Tests if a given identifier is in the scope of any declaration.
-	 * @return <hans>true</hans> if there is any enclosing scope in which
-	 * the identifier is declared; <hans>false</hans> otherwise.
+	 * @return <code>true</code> if there is any enclosing scope in which
+	 * the identifier is declared; <code>false</code> otherwise.
 	 */
-	boolean contains(String id);
+	public abstract boolean contains(String id);
 }

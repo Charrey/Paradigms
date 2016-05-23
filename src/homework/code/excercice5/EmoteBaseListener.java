@@ -1,76 +1,64 @@
-// Generated from C:/Users/poesd_000/IdeaProjects/Paradigms/src/pp/block2/cc/antlr\SentenceCopy.g4 by ANTLR 4.5.1
-package pp.block2.cc.antlr;
+// Generated from C:/Users/Gebruiker/IdeaProjects/Paradigms/Paradigmes2/Paradigms/src/homework/hans/excercice5\Emote.g4 by ANTLR 4.5.1
+package homework.code.excercice5;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link SentenceCopyListener},
+ * This class provides an empty implementation of {@link EmoteListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class SentenceCopyBaseListener implements SentenceCopyListener {
+public class EmoteBaseListener implements EmoteListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSentence(SentenceCopyParser.SentenceContext ctx) { }
+	@Override public void enterText(EmoteParser.TextContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSentence(SentenceCopyParser.SentenceContext ctx) { }
+	@Override public void exitText(EmoteParser.TextContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModSubject(SentenceCopyParser.ModSubjectContext ctx) { }
+	@Override public void enterWordItem(EmoteParser.WordItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModSubject(SentenceCopyParser.ModSubjectContext ctx) { }
+	@Override public void exitWordItem(EmoteParser.WordItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimpleSubject(SentenceCopyParser.SimpleSubjectContext ctx) { }
+	@Override public void enterTextItem(EmoteParser.TextItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSimpleSubject(SentenceCopyParser.SimpleSubjectContext ctx) { }
+	@Override public void exitTextItem(EmoteParser.TextItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterObject(SentenceCopyParser.ObjectContext ctx) { }
+	@Override public void enterRaiseItem(EmoteParser.RaiseItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitObject(SentenceCopyParser.ObjectContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterModifier(SentenceCopyParser.ModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitModifier(SentenceCopyParser.ModifierContext ctx) { }
+	@Override public void exitRaiseItem(EmoteParser.RaiseItemContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
