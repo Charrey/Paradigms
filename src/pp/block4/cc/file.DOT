@@ -1,0 +1,9 @@
+digraph G {
+    0 [penwidth=3,label="0_2: Decl",color=1, colorscheme=paired12] 
+    1 [penwidth=3,label="1_3: Assign",color=1, colorscheme=paired12] 
+    2 [penwidth=3,label="2_1: WHILE",color=1, colorscheme=paired12] 
+
+    0->1 [penwidth=2] 
+    1->2 [penwidth=2] 
+    2->0 [penwidth=2] 
+}

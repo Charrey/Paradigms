@@ -1,8 +1,6 @@
-// Generated from Fragment.g4 by ANTLR 4.4
+// Generated from C:/Users/poesd_000/IdeaProjects/Paradigms/src/pp/block4/cc/cfg\Fragment.g4 by ANTLR 4.5.1
 package pp.block4.cc.cfg;
-
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -17,324 +15,324 @@ public class FragmentBaseListener implements FragmentListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlockStat(@NotNull FragmentParser.BlockStatContext ctx) { }
+	@Override public void enterProgram(FragmentParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlockStat(@NotNull FragmentParser.BlockStatContext ctx) { }
+	@Override public void exitProgram(FragmentParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterContStat(@NotNull FragmentParser.ContStatContext ctx) { }
+	@Override public void enterDecl(FragmentParser.DeclContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitContStat(@NotNull FragmentParser.ContStatContext ctx) { }
+	@Override public void exitDecl(FragmentParser.DeclContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDecl(@NotNull FragmentParser.DeclContext ctx) { }
+	@Override public void enterAssignStat(FragmentParser.AssignStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDecl(@NotNull FragmentParser.DeclContext ctx) { }
+	@Override public void exitAssignStat(FragmentParser.AssignStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrintStat(@NotNull FragmentParser.PrintStatContext ctx) { }
+	@Override public void enterIfStat(FragmentParser.IfStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrintStat(@NotNull FragmentParser.PrintStatContext ctx) { }
+	@Override public void exitIfStat(FragmentParser.IfStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterProgram(@NotNull FragmentParser.ProgramContext ctx) { }
+	@Override public void enterWhileStat(FragmentParser.WhileStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitProgram(@NotNull FragmentParser.ProgramContext ctx) { }
+	@Override public void exitWhileStat(FragmentParser.WhileStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterType(@NotNull FragmentParser.TypeContext ctx) { }
+	@Override public void enterBlockStat(FragmentParser.BlockStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitType(@NotNull FragmentParser.TypeContext ctx) { }
+	@Override public void exitBlockStat(FragmentParser.BlockStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParExpr(@NotNull FragmentParser.ParExprContext ctx) { }
+	@Override public void enterPrintStat(FragmentParser.PrintStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitParExpr(@NotNull FragmentParser.ParExprContext ctx) { }
+	@Override public void exitPrintStat(FragmentParser.PrintStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArrayTarget(@NotNull FragmentParser.ArrayTargetContext ctx) { }
+	@Override public void enterBreakStat(FragmentParser.BreakStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitArrayTarget(@NotNull FragmentParser.ArrayTargetContext ctx) { }
+	@Override public void exitBreakStat(FragmentParser.BreakStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCompExpr(@NotNull FragmentParser.CompExprContext ctx) { }
+	@Override public void enterContStat(FragmentParser.ContStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCompExpr(@NotNull FragmentParser.CompExprContext ctx) { }
+	@Override public void exitContStat(FragmentParser.ContStatContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBitAndExpr(@NotNull FragmentParser.BitAndExprContext ctx) { }
+	@Override public void enterIdTarget(FragmentParser.IdTargetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBitAndExpr(@NotNull FragmentParser.BitAndExprContext ctx) { }
+	@Override public void exitIdTarget(FragmentParser.IdTargetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhileStat(@NotNull FragmentParser.WhileStatContext ctx) { }
+	@Override public void enterArrayTarget(FragmentParser.ArrayTargetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhileStat(@NotNull FragmentParser.WhileStatContext ctx) { }
+	@Override public void exitArrayTarget(FragmentParser.ArrayTargetContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfStat(@NotNull FragmentParser.IfStatContext ctx) { }
+	@Override public void enterArrayExpr(FragmentParser.ArrayExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfStat(@NotNull FragmentParser.IfStatContext ctx) { }
+	@Override public void exitArrayExpr(FragmentParser.ArrayExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdTarget(@NotNull FragmentParser.IdTargetContext ctx) { }
+	@Override public void enterInExpr(FragmentParser.InExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdTarget(@NotNull FragmentParser.IdTargetContext ctx) { }
+	@Override public void exitInExpr(FragmentParser.InExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArrayExpr(@NotNull FragmentParser.ArrayExprContext ctx) { }
+	@Override public void enterOrExpr(FragmentParser.OrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitArrayExpr(@NotNull FragmentParser.ArrayExprContext ctx) { }
+	@Override public void exitOrExpr(FragmentParser.OrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInExpr(@NotNull FragmentParser.InExprContext ctx) { }
+	@Override public void enterFieldExpr(FragmentParser.FieldExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInExpr(@NotNull FragmentParser.InExprContext ctx) { }
+	@Override public void exitFieldExpr(FragmentParser.FieldExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrExpr(@NotNull FragmentParser.OrExprContext ctx) { }
+	@Override public void enterParExpr(FragmentParser.ParExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitOrExpr(@NotNull FragmentParser.OrExprContext ctx) { }
+	@Override public void exitParExpr(FragmentParser.ParExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBreakStat(@NotNull FragmentParser.BreakStatContext ctx) { }
+	@Override public void enterBitOrExpr(FragmentParser.BitOrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBreakStat(@NotNull FragmentParser.BreakStatContext ctx) { }
+	@Override public void exitBitOrExpr(FragmentParser.BitOrExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFieldExpr(@NotNull FragmentParser.FieldExprContext ctx) { }
+	@Override public void enterNotExpr(FragmentParser.NotExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFieldExpr(@NotNull FragmentParser.FieldExprContext ctx) { }
+	@Override public void exitNotExpr(FragmentParser.NotExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBitOrExpr(@NotNull FragmentParser.BitOrExprContext ctx) { }
+	@Override public void enterAddExpr(FragmentParser.AddExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBitOrExpr(@NotNull FragmentParser.BitOrExprContext ctx) { }
+	@Override public void exitAddExpr(FragmentParser.AddExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNotExpr(@NotNull FragmentParser.NotExprContext ctx) { }
+	@Override public void enterCompExpr(FragmentParser.CompExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNotExpr(@NotNull FragmentParser.NotExprContext ctx) { }
+	@Override public void exitCompExpr(FragmentParser.CompExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAddExpr(@NotNull FragmentParser.AddExprContext ctx) { }
+	@Override public void enterBitAndExpr(FragmentParser.BitAndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAddExpr(@NotNull FragmentParser.AddExprContext ctx) { }
+	@Override public void exitBitAndExpr(FragmentParser.BitAndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignStat(@NotNull FragmentParser.AssignStatContext ctx) { }
+	@Override public void enterConstExpr(FragmentParser.ConstExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignStat(@NotNull FragmentParser.AssignStatContext ctx) { }
+	@Override public void exitConstExpr(FragmentParser.ConstExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstExpr(@NotNull FragmentParser.ConstExprContext ctx) { }
+	@Override public void enterIdExpr(FragmentParser.IdExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConstExpr(@NotNull FragmentParser.ConstExprContext ctx) { }
+	@Override public void exitIdExpr(FragmentParser.IdExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdExpr(@NotNull FragmentParser.IdExprContext ctx) { }
+	@Override public void enterAndExpr(FragmentParser.AndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIdExpr(@NotNull FragmentParser.IdExprContext ctx) { }
+	@Override public void exitAndExpr(FragmentParser.AndExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAndExpr(@NotNull FragmentParser.AndExprContext ctx) { }
+	@Override public void enterType(FragmentParser.TypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAndExpr(@NotNull FragmentParser.AndExprContext ctx) { }
+	@Override public void exitType(FragmentParser.TypeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void enterEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEveryRule(@NotNull ParserRuleContext ctx) { }
+	@Override public void exitEveryRule(ParserRuleContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitTerminal(@NotNull TerminalNode node) { }
+	@Override public void visitTerminal(TerminalNode node) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void visitErrorNode(@NotNull ErrorNode node) { }
+	@Override public void visitErrorNode(ErrorNode node) { }
 }
