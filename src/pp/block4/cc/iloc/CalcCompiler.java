@@ -7,6 +7,9 @@ import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 
+import org.antlr.v4.runtime.tree.ParseTreeProperty;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.w3c.dom.traversal.TreeWalker;
 import pp.block4.cc.ErrorListener;
 import pp.block4.cc.iloc.CalcParser.CompleteContext;
 import pp.iloc.Simulator;
@@ -17,9 +20,22 @@ import pp.iloc.model.Program;
 
 /** Compiler from Calc.g4 to ILOC. */
 public class CalcCompiler extends CalcBaseListener {
+
+	//IDEE: Sla van elke node bij EXIT de instructies op die zouden moeten resulteren in het antwoord op r_a.
+	//      Bij operaties, doe eerst links, kopieer r_a naar r_b, doe dan rechts, doe dan operatie en sla op in r_a.
+	//		Maak hiervoor kleine subclasse "Instructie". NB: Houd een counter bij voor register namen.
+
+
+
+
+
+
+
 	/** Program under construction. */
 	private Program prog;
 	// Attribute maps and other fields
+
+	ParseTreeProperty<Integer> content;
 
 	/** Compiles a given expression string into an ILOC program. */
 	public Program compile(String text) {
@@ -47,11 +63,16 @@ public class CalcCompiler extends CalcBaseListener {
 
 	/** Compiles a given Calc-parse tree into an ILOC program. */
 	public Program compile(ParseTree tree) {
-		// TODO Fill in
-		throw new UnsupportedOperationException("Fill in");
+		new ParseTreeWalker().walk(this, tree);
+		return prog;
 	}
 
-	/** Constructs an operation from the parameters 
+	@Override
+	public void exitMinus(CalcParser.MinusContext ctx) {
+		super.exitMinus(ctx);
+	}
+
+	/** Constructs an operation from the parameters
 	 * and adds it to the program under construction. */
 	private void emit(OpCode opCode, Operand... args) {
 		this.prog.addInstr(new Op(opCode, args));

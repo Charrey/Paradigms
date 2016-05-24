@@ -20,15 +20,39 @@ import pp.iloc.parse.FormatException;
 public class SimulatorTest {
 
 
+//	@Test
+//	public void testSimulator(){
+//		Program p = parse("max");
+//		Machine m = new Machine();
+//		Simulator s = new Simulator(p,m);
+//		s.getVM().init("a",1,3,2,5,4);
+//		s.getVM().setNum("alength",5);
+//		s.run();
+//		assertEquals(5,m.getReg("r_max"));
+//	}
+//
+//	@Test
+//	public void testFib1(){
+//		Program p = parse("fibReg");
+//		Machine m = new Machine();
+//		Simulator s = new Simulator(p,m);
+//		s.getVM().setNum("limit",46);
+//		//47 yields overflow
+//		s.run();
+//	}
+
 	@Test
-	public void testSimulator(){
-		Program p = parse("max");
+	public void testFib2(){
+		Program p = parse("fibMem");
 		Machine m = new Machine();
 		Simulator s = new Simulator(p,m);
-		s.getVM().init("a",1,3,2,5,4);
-		s.getVM().setNum("alength",5);
+		s.getVM().setNum("a", 1);
+		s.getVM().setNum("b", 1);
+		s.getVM().setNum("limit",46);
+		//47 yields overflow
 		s.run();
-		assertEquals(5,m.getReg("r_max"));
+		System.out.println(s.getVM().getNum("a"));
+		System.out.println(s.getVM().getNum("b"));
 	}
 
 

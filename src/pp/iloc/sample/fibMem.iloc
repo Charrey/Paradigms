@@ -1,0 +1,15 @@
+start: loadAI r_arp,@a => r_a
+       loadAI r_arp,@b => r_b
+       out "A init: ", r_a
+       out "B init: ", r_b
+       loadI 1 => r_counter
+       loadI @limit => r_limit
+while: cmp_LT r_counter,r_limit => r_cmp
+       cbr r_cmp -> body, end
+body:  add r_a, r_b => r_temp
+       addI r_b, 0 => r_a
+       addI r_temp, 0 => r_b
+       addI r_counter, 1 => r_counter
+       jumpI -> while
+end:   storeAI r_a => r_arp, @a
+       storeAI r_b => r_arp, @b
