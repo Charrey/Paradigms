@@ -79,6 +79,13 @@ public class BottomUpCFGBuilder extends FragmentBaseListener {
 	}
 
 	@Override
+	public void exitProgram(FragmentParser.ProgramContext ctx) {
+		for (int i = 0; i<ctx.getChildCount()-2; i++) {
+			exitie.get(ctx.getChild(i)).addEdge(entrie.get(ctx.getChild(i+1)));
+		}
+	}
+
+	@Override
 	public void exitDecl(@NotNull FragmentParser.DeclContext ctx) {
 		Node mynode = addNode(ctx, "Decl");
 		entrie.put(ctx, mynode);

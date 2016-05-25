@@ -149,7 +149,6 @@ public class TopDownCFGBuilder extends FragmentBaseListener {
 	public void enterProgram(ProgramContext ctx) {
 		Node firstentry = null;
 		Node lastexit = null;
-
 		for (int i = 0; i<ctx.getChildCount()-1; i++) {
 			ParserRuleContext get = (ParserRuleContext) ctx.getChild(i);
 			Node entry = addNode(get, getFirstNodeText(get));
@@ -227,6 +226,9 @@ public class TopDownCFGBuilder extends FragmentBaseListener {
 		if (ctx instanceof FragmentParser.IfStatContext) {
 			return "IF: "+ctx.getChild(2).getText();
 		}
+		if (ctx instanceof FragmentParser.PrintStatContext) {
+			return "PRINT";
+		}
 		return "?";
 	}
 
@@ -234,7 +236,7 @@ public class TopDownCFGBuilder extends FragmentBaseListener {
 		if (ctx instanceof FragmentParser.WhileStatContext) {
 			return "JOIN WHILE";
 		}
-		if (ctx instanceof FragmentParser.DeclContext || ctx instanceof FragmentParser.AssignStatContext) {
+		if (ctx instanceof FragmentParser.DeclContext || ctx instanceof FragmentParser.AssignStatContext || ctx instanceof FragmentParser.PrintStatContext) {
 			return "-";
 		}
 		if (ctx instanceof FragmentParser.BlockStatContext) {
