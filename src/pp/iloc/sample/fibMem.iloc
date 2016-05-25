@@ -1,7 +1,5 @@
 start: loadAI r_arp,@a => r_a
        loadAI r_arp,@b => r_b
-       out "A init: ", r_a
-       out "B init: ", r_b
        loadI 1 => r_counter
        loadI @limit => r_limit
 while: cmp_LT r_counter,r_limit => r_cmp

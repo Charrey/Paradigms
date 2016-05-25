@@ -29,9 +29,9 @@ public class FindTest {
         }
         Machine vm = new Machine();
         Simulator sim = new Simulator(p, vm);
-        //run(sim, 15, 2);
+        run(sim, 15, 2);
         run(sim, 5, 0);
-        //run(sim, 10, 3);
+        run(sim, 10, 3);
     }
 
     private void run(Simulator sim, int input, int output) {
