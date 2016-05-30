@@ -5,7 +5,9 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 
+import org.antlr.v4.runtime.tree.TerminalNode;
 import pp.block5.cc.pascal.SimplePascalBaseVisitor;
+import pp.block5.cc.pascal.SimplePascalParser;
 import pp.iloc.Simulator;
 import pp.iloc.model.Label;
 import pp.iloc.model.Num;
@@ -33,6 +35,8 @@ public class Generator extends SimplePascalBaseVisitor<Op> {
 	private int regCount;
 	/** Association of expression and target nodes to registers. */
 	private ParseTreeProperty<Reg> regs;
+
+	private Reg r_0;
 
 	/** Generates ILOC code for a given parse tree,
 	 * given a pre-computed checker result.
@@ -108,5 +112,20 @@ public class Generator extends SimplePascalBaseVisitor<Op> {
 	/** Assigns a register to a given parse tree node. */
 	private void setReg(ParseTree node, Reg reg) {
 		this.regs.put(node, reg);
+	}
+
+	// --------------- OUR CODE ------------------//
+
+
+	@Override
+	public Op visitProgram(SimplePascalParser.ProgramContext ctx) {
+		prog.addInstr(new Op(OpCode.loadI,new Num(0), r_0));
+	}
+
+	@Override
+	public Op visitVar(SimplePascalParser.VarContext ctx) {
+		for (TerminalNode node: ctx.ID()){
+			prog.addInstr(new Op(OpCode.store));
+		}
 	}
 }

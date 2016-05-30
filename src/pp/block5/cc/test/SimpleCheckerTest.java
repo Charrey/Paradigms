@@ -38,6 +38,8 @@ public class SimpleCheckerTest {
 		ParseTree body = tree.getChild(3).getChild(1);
 		ParseTree assX = body.getChild(1);
 		assertEquals(assX.getChild(2), result.getEntry(assX));
+		System.out.println(result.getEntry(body).getText());
+		System.out.println(assX.getChild(2).getText());
 		assertEquals(assX.getChild(2), result.getEntry(body));
 	}
 

@@ -156,9 +156,12 @@ public class Checker extends SimplePascalBaseListener {
 
 	@Override
 	public void exitAssStat(SimplePascalParser.AssStatContext ctx) {
-		setEntry(ctx, (ParserRuleContext) ctx.getChild(2));
+		setEntry(ctx, entry(ctx.expr()));
 		Type targetType = scope.type(ctx.target().getText());
 		Type exprType = result.getType(ctx.getChild(2));
+		setOffset(ctx.target(), this.scope.offset(ctx.target().getText()));
+		//TODO: Search and understand wtf an offset was again.
+
 		if (!targetType.equals(exprType)){
 			addError(ctx,"Types don't match in assignment: " + "Target type= " + targetType.toString() + " Expression type= " + exprType);
 		}
@@ -168,6 +171,7 @@ public class Checker extends SimplePascalBaseListener {
 	public void exitIdTarget(SimplePascalParser.IdTargetContext ctx) {
 		if(scope.contains(ctx.ID().getText())){
 			result.setType(ctx, scope.type(ctx.ID().getText()));
+			setEntry(ctx,ctx);
 		} else {
 			addError(ctx,"Unkown id: " + ctx.ID().getText());
 		}
@@ -178,13 +182,14 @@ public class Checker extends SimplePascalBaseListener {
 		if(!result.getType(ctx.expr()).equals(Type.BOOL)){
 			addError(ctx,"Expected boolean, found: " + result.getType(ctx.expr()));
 		}
+		setEntry(ctx,ctx);
 	}
 
 
 
 	@Override
 	public void exitBlockStat(SimplePascalParser.BlockStatContext ctx) {
-		setEntry(ctx, entry(ctx.getChild(0)));
+		setEntry(ctx, entry(ctx.block()));
 	}
 
 	@Override
@@ -192,6 +197,22 @@ public class Checker extends SimplePascalBaseListener {
 		if(!result.getType(ctx.expr()).equals(Type.BOOL)){
 			addError(ctx,"Expected boolean, found: " + result.getType(ctx.expr()));
 		}
+		setEntry(ctx,ctx);
+	}
+
+	@Override
+	public void exitBlock(SimplePascalParser.BlockContext ctx) {
+		setEntry(ctx, entry(ctx.stat(0)));
+	}
+
+	@Override
+	public void exitInStat(SimplePascalParser.InStatContext ctx) {
+		setEntry(ctx, ctx);
+	}
+
+	@Override
+	public void exitOutStat(SimplePascalParser.OutStatContext ctx) {
+		setEntry(ctx,ctx);
 	}
 
 	// --------------------------------------------------------- //
