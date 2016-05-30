@@ -8,9 +8,12 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
+import org.antlr.v4.runtime.tree.TerminalNode;
 import pp.block5.cc.ParseException;
 import pp.block5.cc.pascal.SimplePascalBaseListener;
 import pp.block5.cc.pascal.SimplePascalParser;
+
+import javax.activation.UnsupportedDataTypeException;
 
 /** Class to type check and calculate flow entries and variable offsets. */
 public class Checker extends SimplePascalBaseListener {
@@ -119,6 +122,71 @@ public class Checker extends SimplePascalBaseListener {
 		setType(ctx, Type.BOOL);
 		setEntry(ctx, ctx);
 	}
+
+	// -------------------- OUR CODE -------------------------- //
+
+	@Override
+	public void exitVarDecl(SimplePascalParser.VarDeclContext ctx) {
+		super.exitVarDecl(ctx);
+	}
+
+	@Override
+	public void exitVar(SimplePascalParser.VarContext ctx) {
+		Type type;
+		try {
+			switch (ctx.type().getText().toLowerCase()) {
+				case "integer":
+					type = Type.INT;
+					break;
+				case "boolean":
+					type = Type.BOOL;
+					break;
+				default:
+					throw new IllegalStateException();
+			}
+			for (TerminalNode node: ctx.ID()) {
+				scope.put(node.getText(), type);
+				result.setType(node, type);
+				//setEntry(ctx, entry(ctx.expr(0)));
+			}
+		} catch (IllegalStateException e) {
+			addError(ctx,"Unknown type exception: " + ctx.type().getText() + " not recognized.");
+		}
+	}
+
+	@Override
+	public void exitAssStat(SimplePascalParser.AssStatContext ctx) {
+		Type targetType = scope.type(ctx.target().getText());
+		Type exprType = result.getType(ctx.getChild(2));
+		if (!targetType.equals(exprType)){
+			addError(ctx,"Types don't match in assignment: " + "Target type= " + targetType.toString() + " Expression type= " + exprType);
+		}
+	}
+
+	@Override
+	public void exitIdTarget(SimplePascalParser.IdTargetContext ctx) {
+		if(scope.contains(ctx.ID().getText())){
+			result.setType(ctx, scope.type(ctx.ID().getText()));
+		} else {
+			addError(ctx,"Unkown id: " + ctx.ID().getText());
+		}
+	}
+
+	@Override
+	public void exitIfStat(SimplePascalParser.IfStatContext ctx) {
+		if(!result.getType(ctx.expr()).equals(Type.BOOL)){
+			addError(ctx,"Expected boolean, found: " + result.getType(ctx.expr()));
+		}
+	}
+
+	@Override
+	public void exitWhileStat(SimplePascalParser.WhileStatContext ctx) {
+		if(!result.getType(ctx.expr()).equals(Type.BOOL)){
+			addError(ctx,"Expected boolean, found: " + result.getType(ctx.expr()));
+		}
+	}
+
+	// --------------------------------------------------------- //
 
 	/** Indicates if any errors were encountered in this tree listener. */
 	public boolean hasErrors() {
