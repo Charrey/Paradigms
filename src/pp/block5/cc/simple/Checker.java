@@ -156,6 +156,7 @@ public class Checker extends SimplePascalBaseListener {
 
 	@Override
 	public void exitAssStat(SimplePascalParser.AssStatContext ctx) {
+		setEntry(ctx, (ParserRuleContext) ctx.getChild(2));
 		Type targetType = scope.type(ctx.target().getText());
 		Type exprType = result.getType(ctx.getChild(2));
 		if (!targetType.equals(exprType)){
@@ -177,6 +178,13 @@ public class Checker extends SimplePascalBaseListener {
 		if(!result.getType(ctx.expr()).equals(Type.BOOL)){
 			addError(ctx,"Expected boolean, found: " + result.getType(ctx.expr()));
 		}
+	}
+
+
+
+	@Override
+	public void exitBlockStat(SimplePascalParser.BlockStatContext ctx) {
+		setEntry(ctx, entry(ctx.getChild(0)));
 	}
 
 	@Override
