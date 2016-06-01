@@ -31,7 +31,7 @@ public class NumWordProcessor extends NumWordBaseVisitor<Integer> {
 			System.out.printf("Processing '%s':%n", text);
 			System.out.println(text);
 			int result = grouper.group(text);
-			System.out.println("Total: " + result);
+			System.out.println(", Total: " + result);
 		} catch (ParseException exc) {
 			exc.print();
 		}
@@ -61,15 +61,27 @@ public class NumWordProcessor extends NumWordBaseVisitor<Integer> {
 	// Each visitor method should call visit(child)
 	// if and when it wants to visit that child node.
 
+	String touse;
 
 	@Override
 	public Integer visitSentence(NumWordParser.SentenceContext ctx) {
 		int result = 0;
 		for (int i = 0; i < ctx.number().size(); i++){
 			result += visit(ctx.number().get(i));
+
+			if(i<ctx.number().size()-2) {
+				touse = ", ";
+			} else if (i==ctx.number().size()-1) {
+				touse = "";
+			} else {
+				touse = " and ";
+			}
+
 			if(i < ctx.word().size()){
 				visit(ctx.word(i));
 			}
+			touse = ", ";
+
 		}
 		return result;
 	}
@@ -83,7 +95,7 @@ public class NumWordProcessor extends NumWordBaseVisitor<Integer> {
 
 	@Override
 	public Integer visitWord(NumWordParser.WordContext ctx) {
-		System.out.print(ctx.getChild(0).getText() + ", ");
+		System.out.print(ctx.getChild(0).getText() + touse);
 		return 0;
 	}
 }
