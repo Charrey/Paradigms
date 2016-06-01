@@ -25,6 +25,7 @@ public class SimpleGeneratorTest {
 	@Test
 	public void testGCD() throws IOException, ParseException {
 		Program prog = compile("gcd");
+		System.out.println(prog.prettyPrint());
 		String out = sim(prog, "3\n8");
 		assertEquals("Greatest common divisor: 1", out.trim());
 		out = sim(prog, "435\n1935");

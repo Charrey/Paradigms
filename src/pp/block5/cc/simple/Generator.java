@@ -40,11 +40,13 @@ public class Generator extends SimplePascalBaseVisitor<List<Op>> {
 
 
 
+
 	/** Generates ILOC code for a given parse tree,
 	 * given a pre-computed checker result.
 	 */
 	public Program generate(ParseTree tree, Result checkResult) {
 		this.prog = new Program();
+
 		this.checkResult = checkResult;
 		this.regs = new ParseTreeProperty<>();
 		this.labels = new ParseTreeProperty<>();
